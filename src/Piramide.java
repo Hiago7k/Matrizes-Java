@@ -6,12 +6,12 @@ public class Piramide {
 
         System.out.println("Digite o tamanho da sua pirâmide:");
         int n = teclado.nextInt();
-        StringBuilder texto = new StringBuilder();
-        texto = new StringBuilder();
+        String texto = "*";
+
 
         for (int i = 0; i < n; i++) {
-            texto.append("*" );
-            System.out.println(" " + texto + " ");
+            System.out.println(texto);
+            texto += "**";
         }
     }
 }
