@@ -14,7 +14,7 @@ public class BuyAndSellSolution {
             }
         }
 
-        for (int j = indiceLowerPrice; j < prices.length - 1; j++) {
+        for (int j = indiceLowerPrice; j < prices.length; j++) {
             if (prices[j] > higherPriceAfterI) {
                 higherPriceAfterI = prices[j];
                 indiceHigherPrice = j;
@@ -24,8 +24,6 @@ public class BuyAndSellSolution {
         if (lowerPrice >= higherPriceAfterI) {
             return 0;
         } else {
-            System.out.println(lowerPrice);
-            System.out.println(higherPriceAfterI);
             return higherPriceAfterI - lowerPrice;
         }
     }
