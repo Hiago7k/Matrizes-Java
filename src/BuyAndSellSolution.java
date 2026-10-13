@@ -1,30 +1,28 @@
 public class BuyAndSellSolution {
     public int maxProfit(int[] prices) {
 
-        int lowerPrice = Integer.MAX_VALUE;
+        int lowerPrice = prices[0];
+        int higherPriceAfterI = prices[0];
+        int maxProfit = 0;
+        int result = 0;
+
         int indiceLowerPrice = 0;
-        int higherPriceAfterI = Integer.MIN_VALUE;
-        int indiceHigherPrice = 0;
+        for (int k = 0; k < prices.length; k++) {
 
-        for (int i = 0; i < prices.length - 1; i++) {
-
-            if (prices[i] < lowerPrice) {
-                lowerPrice = prices[i];
-                indiceLowerPrice = i;
+            for (int i = 0; i < prices.length -1; i++) {
+                if (prices[i] >= prices[1 + 1]) {
+                    result = prices[i] - prices[i + 1];
+                } else {
+                    result = prices[i + 1] - prices[i];
+                }
             }
-        }
 
-        for (int j = indiceLowerPrice; j < prices.length; j++) {
-            if (prices[j] > higherPriceAfterI) {
-                higherPriceAfterI = prices[j];
-                indiceHigherPrice = j;
+            if (result >= maxProfit) {
+                maxProfit = result;
             }
-        }
 
-        if (lowerPrice >= higherPriceAfterI) {
-            return 0;
-        } else {
-            return higherPriceAfterI - lowerPrice;
+
         }
+        return maxProfit;
     }
 }
